@@ -1,11 +1,16 @@
 package pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProductsPage {
 
     private final WebDriver driver;
+    private final WebDriverWait wait;
 
     private final By backpackAddButton =
             By.id("add-to-cart-sauce-labs-backpack");
@@ -15,13 +20,18 @@ public class ProductsPage {
 
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public void addBackpackToCart() {
-        driver.findElement(backpackAddButton).click();
+        wait.until(
+                ExpectedConditions.elementToBeClickable(backpackAddButton)
+        ).click();
     }
 
     public String getCartBadgeCount() {
-        return driver.findElement(cartBadge).getText();
+        return wait.until(
+                ExpectedConditions.visibilityOfElementLocated(cartBadge)
+        ).getText();
     }
 }
