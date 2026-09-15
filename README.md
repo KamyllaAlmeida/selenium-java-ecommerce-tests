@@ -1,5 +1,7 @@
 # Selenium Java E-Commerce Tests
 
+![Selenium Tests](https://github.com/KamyllaAlmeida/selenium-java-ecommerce-tests/actions/workflows/tests.yml/badge.svg)
+
 Automated UI testing project created to demonstrate web test automation practices using Java, Selenium WebDriver, JUnit 5, Maven, and GitHub Actions.
 
 The tests run against [SauceDemo](https://www.saucedemo.com/), a sample e-commerce website designed for automation practice.
